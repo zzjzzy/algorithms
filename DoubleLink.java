@@ -42,6 +42,19 @@ class DoubleLink<T> {
     }
     return node;
   }
+  
+  //获得指定index处的值
+  public T getValue(int index){
+    return getNode(index).value;
+  }
+  
+  //在指定位置前面插入节点
+  public void insert(int index, T value){
+    Node<T> node = getNode(index);
+    Node<T> inode = new Node<T>(value, node.prev, node);
+    node.prev.next = inode;
+    node.prev = node;
+  }
 
 
 }
